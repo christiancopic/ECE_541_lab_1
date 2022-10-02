@@ -14,7 +14,6 @@ def main():
     
     #x[row][col]
     #columns: index, time, reference, position, uselses, useless
-    #We want tPeak, peakPos, and yFV.
 
     pos = []
     time = []
@@ -22,9 +21,8 @@ def main():
     for r in (x):
         pos.append(r[3])
         time.append(r[1])
-
-    #test
     
+    #We want tPeak, peakPos, and yFV.
     maxVal = str(max(pos))
     tPeak = str(round((x[pos.index(max(pos))][1]) - 6, 3))
     yFV = str(x[time.index(2.754)][3])
@@ -33,6 +31,7 @@ def main():
     print("tPeak: "+ tPeak)
     print("yFV:" + yFV)
 
+    #Create plot
     plt.plot(time,pos)
     plt.text(15, 2500,"Max: " + maxVal + "\ntPeak: " + tPeak + "\nyFV: " + yFV)
     plt.ylabel("Position")
