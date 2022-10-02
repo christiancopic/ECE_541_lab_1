@@ -1,8 +1,9 @@
 from matplotlib import pyplot as plt
+import os
 
 def main():
     #Eliminate semicolons at end of rows
-    with open("lab1s2m3.txt", 'r') as f:
+    with open(os.getcwd() + "/Lab_data/lab1s2m3.txt", 'r') as f:
         data = f.read()
         data = data.replace(";", "")
     f.close()
@@ -24,11 +25,19 @@ def main():
 
     #test
     
-    print("Max value: " + str(max(pos)))
-    print("tPeak: "+ str((x[pos.index(max(pos))][1])))
-    print("yFV:" + str(x[time.index(2.754)][3]))
+    maxVal = str(max(pos))
+    tPeak = str(round((x[pos.index(max(pos))][1]) - 6, 3))
+    yFV = str(x[time.index(2.754)][3])
+
+    print("Max value: " + maxVal)
+    print("tPeak: "+ tPeak)
+    print("yFV:" + yFV)
 
     plt.plot(time,pos)
+    plt.text(15, 2500,"Max: " + maxVal + "\ntPeak: " + tPeak + "\nyFV: " + yFV)
+    plt.ylabel("Position")
+    plt.xlabel("Time (s)")
+    plt.title("Mass-Spring-Damper System Repsonse")
     plt.show()
 
 
