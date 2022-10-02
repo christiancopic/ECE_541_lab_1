@@ -21,6 +21,8 @@ def main():
     for r in (x):
         pos.append(r[3])
         time.append(r[1])
+
+    #test
     
     print("Max value: " + str(max(pos)))
     print("tPeak: "+ str((x[pos.index(max(pos))][1])))
