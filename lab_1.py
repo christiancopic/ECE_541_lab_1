@@ -7,7 +7,7 @@ def main():
         data = data.replace(";", "")
     f.close()
 
-    #split data in rows/columns
+    #split data into rows/columns
     x = [[float(c) for c in r.split()] \
      for r in data.strip().split('\n')]
     
@@ -22,11 +22,13 @@ def main():
         pos.append(r[3])
         time.append(r[1])
     
-    plt.plot(time,pos)
-    plt.show()
     print("Max value: " + str(max(pos)))
     print("tPeak: "+ str((x[pos.index(max(pos))][1])))
     print("yFV:" + str(x[time.index(2.754)][3]))
+
+    plt.plot(time,pos)
+    plt.show()
+
 
 
 if __name__ == '__main__':
