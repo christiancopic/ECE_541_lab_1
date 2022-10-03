@@ -24,9 +24,9 @@ def main():
     
     #We want tPeak, peakPos, and yFV.
     maxVal = str(max(pos))
+    tPeak = str(round((x[pos.index(max(pos))][1]) - 6, 3))
     #This is the grossest line of code I've ever made. Good luck.
     peakTwo = str(round(x[pos.index(max(pos[time.index(6.410):time.index(8.004)]))][1]-6,3))
-    tPeak = str(round((x[pos.index(max(pos))][1]) - 6, 3))
     yFV = str(x[time.index(2.754)][3])
 
     print("Max value: " + maxVal)
@@ -36,7 +36,8 @@ def main():
 
     #Create plot
     plt.plot(time,pos)
-    plt.text(15, 2400,"Max: " + maxVal + "\ntPeak: " + tPeak + "\nyFV: " + yFV + "\nPeak 2: " + peakTwo)
+    plt.text(14.2, 2300,"Max: " + maxVal + "\ntPeak: " + tPeak + "\nyFV: " + yFV + "\ntPeak 2: " + peakTwo, \
+     bbox=dict(facecolor='none', edgecolor='red', boxstyle='round,pad=0.5'))
     plt.ylabel("Position")
     plt.xlabel("Time (s)")
     plt.title("Mass-Spring-Damper System Repsonse")
